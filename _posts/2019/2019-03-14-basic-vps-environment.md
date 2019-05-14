@@ -23,7 +23,7 @@ ulimit -a
 # 关于其他检查比如防火墙的设置，禁止root用户远程登录，只允许公钥登录等属于基础配置，不进行赘述。
 yum -y groupinstall "Development Tools"
 ```
-### 设置Java等环境
+### 安装Java
 #### 下载安装
 ```Bash
 cd /usr/local
@@ -49,7 +49,7 @@ export JAVA_HOME CLASSPATH PATH
 ```Bash
 source /etc/profile
 ```
-### 设置Maven环境
+### 安装Maven
 #### 下载安装
 ```Bash
 cd /usr/local
@@ -98,6 +98,7 @@ systemctl enable nginx # 可用systemctl is-enabled nginx.service来查看nginx�
 ```
 ### 安装git
 阿里云的CentOS 7自带的git很旧，需要自行编译安装
+#### 下载安装
 ```Bash
 yum install -y curl-devel zlib zlib-devel asciidoc xmlto perl perl-devel perl-CPAN cpio expat-devel gettext-devel autoconf tk perl-ExtUtils-MakeMaker
 yum -y remove git
@@ -131,4 +132,5 @@ export PATH=$PATH:/usr/local/git/bin
 ```Bash
 source /etc/profile
 ```
+
 Continue...
