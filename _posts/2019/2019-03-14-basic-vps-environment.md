@@ -2,7 +2,7 @@
 layout: post
 title: vps基础环境搭建
 categories: Development
-description: basic server environment
+description: 根据实际vps搭建情况逐渐更新
 keywords: CentOS 7, java, maven, nginx, git, node
 ---
 
@@ -10,7 +10,7 @@ keywords: CentOS 7, java, maven, nginx, git, node
 ## 阿里云服务器基础环境准备
 ### 检查基础环境变量
 #### 登录服务器后，检查基础配置。阿里云的机器默认做了很多优化，省了很多事。
-```bash
+```Bash
 su
 hostnamectl
 yum update && yum upgrade
@@ -23,7 +23,7 @@ yum -y groupinstall "Development Tools"
 ```
 ### 设置Java等环境
 #### 下载安装
-```bash
+```Bash
 cd /usr/local
 # 去https://jdk.java.net/下载JDK并解压，我这里使用的阿里的开源jdk,对应的openJDK8，更新的可以去自行下载安装
 wget "https://github.com/alibaba/dragonwell8/releases/download/8.0-preview/Alibaba_Dragonwell8_Linux_x64_8.0-preview.tar.gz"
@@ -32,24 +32,24 @@ ln -s j2sdk-image jdk
 rm Alibaba_Dragonwell8_Linux_x64_8.0-preview.tar.gz
 ```
 #### 配置环境变量
-```bash
+```Bash
 touch /etc/profile.d/java.sh
 vi /etc/profile.d/java.sh
 ```
 `java.sh`内容
-```bash
+```Bash
 #set java environment
 JAVA_HOME=/usr/local/jdk
 CLASSPATH=.:$JAVA_HOME/lib
 PATH=$JAVA_HOME/bin:$PATH
 export JAVA_HOME CLASSPATH PATH
 ```
-```bash
+```Bash
 source /etc/profile
 ```
 ### 设置Maven环境
 #### 下载安装
-```bash
+```Bash
 cd /usr/local
 wget "http://mirror.bit.edu.cn/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz"
 tar xzf apache-maven-3.6.1-bin.tar.gz
@@ -57,23 +57,23 @@ ln -s apache-maven-3.6.1 apache-maven
 rm apache-maven-3.6.1-bin.tar.gz
 ```
 #### 配置环境变量
-```bash
+```Bash
 touch /etc/profile.d/maven.sh
 vi /etc/profile.d/maven.sh
 ```
 `maven.sh`内容
-```bash
+```Bash
 #set maven environment
 M2_HOME=/usr/local/apache-maven
 PATH=$PATH:$M2_HOME/bin
 export M2_HOME PATH
 ```
-```bash
+```Bash
 source /etc/profile
 ```
 ### 安装nginx
 #### 下载安装
-```bash
+```Bash
 # 如果对本机器openssl的版本不满意，可以去官网下载源码自行编译安装
 yum -y install zlib zlib-devel openssl openssl-devel pcre pcre-devel pcre-lib
 cd /usr/local/src
@@ -87,7 +87,7 @@ make
 make install # 安装完成后 nginx 启动，查看有无错误消息
 ```
 #### 包装成Systemd服务
-```bash
+```Bash
 cd /usr/lib/systemd/system
 # systemd的服务有system和user两种，这里的nginx随着机器启动，当然是系统服务
 # 这里的配置基于我自己系统
@@ -96,7 +96,7 @@ systemctl enable nginx # 可用systemctl is-enabled nginx.service来查看nginx�
 ```
 ### 安装git
 阿里云的CentOS 7自带的git很旧，需要自行编译安装
-```bash
+```Bash
 yum install -y curl-devel zlib zlib-devel asciidoc xmlto perl perl-devel perl-CPAN cpio expat-devel gettext-devel autoconf tk perl-ExtUtils-MakeMaker
 yum -y remove git
 cd /usr/local/src
@@ -122,10 +122,10 @@ touch /etc/profile.d/git.sh
 vi /etc/profile.d/git.sh
 ```
 `git.sh`内容
-```bash
+```Bash
 #set git environment
 export PATH=$PATH:/usr/local/git/bin
 ```
-```bash
+```Bash
 source /etc/profile
 ```
