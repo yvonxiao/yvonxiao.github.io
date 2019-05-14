@@ -9,7 +9,9 @@ keywords: CentOS 7, java, maven, nginx, git, node
 根据实际vps搭建情况逐渐更新，因为是vps，资源紧张，基于docker安装有点没必要，直接裸装
 
 ## 阿里云服务器基础环境准备
+
 ### 检查基础环境变量
+
 #### 登录服务器后，检查基础配置。
 阿里云的机器默认做了很多优化，省了很多事。
 ```Bash
@@ -23,7 +25,10 @@ ulimit -a
 # 关于其他检查比如防火墙的设置，禁止root用户远程登录，只允许公钥登录等属于基础配置，不进行赘述。
 yum -y groupinstall "Development Tools"
 ```
+要注意的是，阿里云的服务器，如果不是对网络有很特殊的要求，不需要自己基于`firewalld`自己设置规则，阿里云的控制台可以自行定义安全组策略，甚至可以配置弹性网卡。默认机器只开启了几个端口，如果要开启其他比如80端口，需要去修改默认的安全组策略
+
 ### 安装Java
+
 #### 下载安装
 ```Bash
 cd /usr/local
@@ -49,7 +54,9 @@ export JAVA_HOME CLASSPATH PATH
 ```Bash
 source /etc/profile
 ```
+
 ### 安装Maven
+
 #### 下载安装
 ```Bash
 cd /usr/local
@@ -73,7 +80,9 @@ export M2_HOME PATH
 ```Bash
 source /etc/profile
 ```
+
 ### 安装nginx
+
 #### 下载安装
 ```Bash
 # 如果对本机器openssl的版本不满意，可以去官网下载源码自行编译安装
@@ -96,7 +105,9 @@ cd /usr/lib/systemd/system
 wget https://raw.githubusercontent.com/yvonxiao/systemd-config/master/nginx.service
 systemctl enable nginx # 可用systemctl is-enabled nginx.service来查看nginx服务
 ```
+
 ### 安装git
+
 阿里云的CentOS 7自带的git很旧，需要自行编译安装
 #### 下载安装
 ```Bash
@@ -133,4 +144,36 @@ export PATH=$PATH:/usr/local/git/bin
 source /etc/profile
 ```
 
+### 安装Node
+
+#### 背景
+扯一下Node的nvm安装，虽然每次换版本，全局安装的包都要重复安装一次，但是这种安装的本意就是要在用户模式下安装，且每个用户每个版本都是一个沙盒，避免共享环境带来的冲突。所以服务器如果要共享node，可以考虑裸装或者使用n
+#### 安装NVM
+```Bash
+# 切换回普通用户
+exit
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+```
+#### 安装最新的Node LTS
+```Bash
+nvm ls-remote
+nvm install v10.15.3
+nvm use v10.15.3
+nvm alias default v10.15.3
+```
+#### 安装NRM
+```Bash
+npm install --global nrm --registry=https://registry.npm.taobao.org
+nrm use cnpm
+```
+#### 安装YARN
+```Bash
+npm install --global yarn
+```
+
+## 参考
+* [CentOS 6.5/7.x 安装libiconv库](http://www.jyguagua.com/?p=3299)
+* [libiconv](http://www.gnu.org/software/libiconv)
+* [Practical Node Tutorial](https://github.com/dev-reading/practical-node-tutorial)
+* [如何正确的学习Node.js](https://i5ting.github.io/How-to-learn-node-correctly/)
 Continue...
