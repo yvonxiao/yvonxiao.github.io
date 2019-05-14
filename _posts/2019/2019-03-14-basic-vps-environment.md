@@ -5,6 +5,7 @@ categories: Development
 description: basic server environment
 keywords: CentOS 7, java, maven, nginx, git, node
 ---
+
 根据实际vps搭建情况逐渐更新，因为是vps，资源紧张，基于docker安装有点没必要，直接裸装
 ## 阿里云服务器基础环境准备
 ### 检查基础环境变量
