@@ -11,6 +11,7 @@ keywords: CentOS 7, java, maven, nginx, git, node
 ## 阿里云服务器基础环境准备
 ### 检查基础环境变量
 #### 登录服务器后，检查基础配置。
+
 阿里云的机器默认做了很多优化，省了很多事。
 ```Bash
 su
