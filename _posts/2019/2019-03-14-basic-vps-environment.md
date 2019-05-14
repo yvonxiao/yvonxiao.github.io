@@ -7,6 +7,7 @@ keywords: CentOS 7, java, maven, nginx, git, node
 ---
 
 根据实际vps搭建情况逐渐更新，因为是vps，资源紧张，基于docker安装有点没必要，直接裸装
+
 ## 阿里云服务器基础环境准备
 ### 检查基础环境变量
 #### 登录服务器后，检查基础配置。阿里云的机器默认做了很多优化，省了很多事。
@@ -129,3 +130,4 @@ export PATH=$PATH:/usr/local/git/bin
 ```Bash
 source /etc/profile
 ```
+FIN
