@@ -9,10 +9,12 @@ keywords: CentOS 7, java, maven, nginx, git, node
 根据实际vps搭建情况逐渐更新，因为是vps，资源紧张，基于docker安装有点没必要，直接裸装
 
 ## 阿里云服务器基础环境准备
-### 检查基础环境变量
-#### 登录服务器后，检查基础配置。
 
+### 检查基础环境变量
+
+#### 登录服务器后，检查基础配置。
 阿里云的机器默认做了很多优化，省了很多事。
+
 ```Bash
 su
 hostnamectl
@@ -25,7 +27,9 @@ ulimit -a
 yum -y groupinstall "Development Tools"
 ```
 ### 设置Java等环境
+
 #### 下载安装
+
 ```Bash
 cd /usr/local
 # 去https://jdk.java.net/下载JDK并解压，我这里使用的阿里的开源jdk,对应的openJDK8，更新的可以去自行下载安装
@@ -35,6 +39,7 @@ ln -s j2sdk-image jdk
 rm Alibaba_Dragonwell8_Linux_x64_8.0-preview.tar.gz
 ```
 #### 配置环境变量
+
 ```Bash
 touch /etc/profile.d/java.sh
 vi /etc/profile.d/java.sh
