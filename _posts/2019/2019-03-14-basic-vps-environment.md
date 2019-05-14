@@ -2,7 +2,7 @@
 layout: post
 title: vps基础环境搭建
 categories: Development
-description: 根据实际vps搭建情况逐渐更新
+description: aliyun ECS environment
 keywords: CentOS 7, java, maven, nginx, git, node
 ---
 
