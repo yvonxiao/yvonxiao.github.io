@@ -131,4 +131,4 @@ export PATH=$PATH:/usr/local/git/bin
 ```Bash
 source /etc/profile
 ```
-FIN
+Continue...
