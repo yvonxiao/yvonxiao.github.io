@@ -171,6 +171,21 @@ nrm use cnpm
 npm install --global yarn
 ```
 
+### 设置个人静态网页
+
+#### 环境准备
+```Bash
+su
+mkdir /home/www
+cd /home/www
+# 省略将静态网页放置的过程
+chown -R nginx:nginx /home/www
+# 将登录用户yvon加入nginx组方便查看
+usermod -a -G nginx yvon
+```
+#### 配置Nginx
+[静态网站部分配置](https://yvonxiao.com/2019/05/23/config-h2-on-centos7)
+
 Continue...
 
 ## 参考
