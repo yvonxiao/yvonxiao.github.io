@@ -184,7 +184,7 @@ chown -R nginx:nginx /home/www
 usermod -a -G nginx yvon
 ```
 #### 配置Nginx
-[静态网站部分配置](https://yvonxiao.com/2019/05/23/config-h2-on-centos7)
+[静态网站部分配置](https://yvonxiao.github.io/2019/05/23/config-h2-on-centos7)
 
 Continue...
 

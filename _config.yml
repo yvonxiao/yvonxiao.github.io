@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://yvonxiao.com
+url: https://yvonxiao.github.io
 date_format: "ordinal"
 title: "Yvonxiao's Blogs"
 subtitle: "My Coding Style"
