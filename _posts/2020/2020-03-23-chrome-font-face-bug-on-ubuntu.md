@@ -1,10 +1,3 @@
-<!--
- * @Author: Yvon Xiao
- * @Date: 2020-03-23 21:46:05
- * @LastEditTime: 2020-03-23 22:46:43
- * @Description: In User Settings Edit
- * @FilePath: /yvonxiao.github.io/_posts/2020/2020-03-23-chrome-font-face-bug-on-ubuntu.md
- -->
 ---
 layout: post
 title: chrome在ubuntu环境里频繁出现错误日志
