@@ -17,7 +17,7 @@ The SUID sandbox helper binary was found, but is not configured correctly. Rathe
 - 加入启动参数`--no-sandbox`
 - 修改内核参数`sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0`
 
-我都觉得不好，第一个方案关闭了沙盒，这本来是Chromium内核自带的安全方案，为啥要取消？，第二个修改内核会影响系统所有的服务，改动太大了，我只是跑几个独立app而已。
+我都觉得不好，第一个方案关闭了沙盒，这本来是Chromium内核自带的安全方案，为啥要取消？第二个修改内核会影响系统所有的服务，改动太大了，我只是跑几个独立app而已。
 
 从第二个方案发现这个问题的出现其实就是ubuntu24.04的新特性`apparmor`的默认安全策略带来的，所以在官方打包程序没有自动添加`apparmor`的profile的情况下，就要手动去添加profile指定用户命名空间等权限。另外，我发现obsidian的AppImage里做好的desktop文件里，启动参数是添加了`--no-sandbox`，动手能力强的倒是可以把AppImage修改成带指定参数(比如代理)和图标的完整版。不过这里我就简单让类似应用能够跑起来就行了。
 
