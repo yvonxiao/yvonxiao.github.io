@@ -6,6 +6,8 @@ description: apt architecture error messages on Ubuntu 24.04.
 keywords: apt, ubuntu24.04
 ---
 
+修复新版apt更新源报错
+
 ### 问题描述
 
 升级到ubuntu24.04后，之前装的msedge，chrome的apt源在`update`的时候总会报如下错误：
